@@ -15,3 +15,8 @@
     - name: Print variables from playbook
       ansible.builtin.debug:
         msg: "Type - {{ type }}, IP_ADDRESS - {{ IP_ADDRESS }}"
+
+- name: Variables from Roles #Variables can also be defined in roles and they will be available to the tasks within that role. The variables defined in the role will override any variables defined in the playbook or inventory file if there is a conflict.
+  hosts: TEST
+  roles:
+    - sample
