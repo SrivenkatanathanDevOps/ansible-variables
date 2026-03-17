@@ -7,5 +7,6 @@
         msg: "{{ ansible_facts }}"
 
     - name: Print mounts and memory
-      ansible.builtin.debug:
-        msg: "{{ ansible_facts['mounts']['default_ipv4'] }}"
+      ansible.builtin.copy:
+        content: "{{ ansible_facts['mounts']['dns'] }}"
+        dest: /tmp/facts.txt
