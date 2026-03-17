@@ -8,3 +8,8 @@
       ansible.builtin.copy:
         src: sample.txt
         dest: /tmp/h1.txt
+
+    - name: Copy template
+      ansible.builtin.template:
+        src: sample.txt.j2
+        dest: /tmp/h2.txt
