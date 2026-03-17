@@ -20,3 +20,13 @@
   hosts: TEST
   roles:
     - sample
+
+- name: Variables from tasks
+  hosts: TEST
+  tasks:
+    - name: Print variables from tasks
+      ansible.builtin.debug:
+        msg: "TASK1 - {{ DB_NAME }} , TASK2 - {{ ENVIRONMENT }}"
+      vars:
+        DB_NAME: REPORTS
+        ENVIRONMENT: PROD
