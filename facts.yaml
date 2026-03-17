@@ -8,4 +8,4 @@
 
     - name: Print mounts and memory
       ansible.builtin.debug:
-        msg: "{{ ansible_facts['mounts']['ipv4'] }}"
+        msg: "{{ ansible_facts['mounts']['dns'] }}"
