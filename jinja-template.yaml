@@ -16,5 +16,5 @@
 
     - name: Copy template 2
       ansible.builtin.template:
-        src: sample.txt.j2
+        src: sample1.txt.j2
         dest: /tmp/h3.txt
