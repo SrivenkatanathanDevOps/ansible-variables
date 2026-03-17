@@ -4,3 +4,14 @@
     - name: Print URL
       ansible.builtin.debug: #Used to print the value of the variable URL assigned to this host in the inventory file
         msg: "URL - {{ URL }}, COMPONENT - {{ COMPONENT }}"
+
+    - name: Variables from Playbook
+      hosts: TEST
+      vars:
+        type: t3.micro
+      vars_files:
+        - vars.yaml #Importing variables from an external file
+      tasks:
+        - name: Print variables from playbook
+          ansible.builtin.debug:
+            msg: "Type - {{ type }}, IP_ADDRESS - {{ IP_ADDRESS }}"
