@@ -1,0 +1,11 @@
+- name: Registering
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Registering a variable
+      ansible.builtin.shell: df -h
+      register: disk_usage
+
+    - name: Print the registered variable
+      ansible.builtin.debug:
+        msg: "{{ disk_usage }}"
