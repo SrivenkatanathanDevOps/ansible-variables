@@ -3,4 +3,4 @@
   tasks:
     - name: Print URL
       ansible.builtin.debug: #Used to print the value of the variable URL assigned to this host in the inventory file
-        msg: "The URL for this host is {{ URL }}"
+        msg: "URL - {{ URL }}, COMPONENT - {{ COMPONENT }}"
