@@ -8,7 +8,7 @@
 - name: Variables from Playbook
   hosts: TEST
   vars:
-  type: t3.micro
+    type: t3.micro
   vars_files:
     - vars.yaml #Importing variables from an external file
   tasks:
