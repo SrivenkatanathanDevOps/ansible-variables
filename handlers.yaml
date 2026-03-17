@@ -1,0 +1,16 @@
+- name: Jinja template example
+  hosts: localhost
+  connection: local
+  vars:
+    student: { name: "Murugan", course: "DevOps" }
+  tasks:
+    - name: Copying the files
+      ansible.builtin.copy:
+        src: sample1.txt
+        dest: /tmp/h4.txt
+        notify: Print message
+
+  handlers:
+    - name: Print message
+      ansible.builtin.debug:
+        msg: "The file sample1.txt has been copied to /tmp/h4.txt"
