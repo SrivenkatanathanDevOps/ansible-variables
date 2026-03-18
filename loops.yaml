@@ -1,0 +1,20 @@
+- name: Loops Example
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+    - name: Install packages
+      ansible.builftin.dnf:
+        name: "{{ item }}"
+        state: present
+      loop: -nginx
+        -curl
+        -git
+
+    - name: create users
+      ansible.builtin.user:
+        name: "{{ name.user }}"
+        uid: "{{ name.uid}}"
+      loop:
+        - { user: "Karupa", uid: 100 }
+        - { user: "Murugan", uid: 101 }
