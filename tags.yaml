@@ -1,0 +1,28 @@
+- name: Tags Example
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+    - name: Install postgre16
+      ansible.builtin.dnf:
+        name:
+          - postgre16-server
+          - postgre16
+        state: present
+      tags:
+        - install
+
+    - name: Install nginx
+      ansible.builtin.dnf:
+        name: nginx
+        state: present
+      tags:
+        - [nginx, config]
+
+    #tags used to run specific tasks 
+
+    #You can run specific tasks using tags with the command:
+    ##ansible-playbook playbook.yaml --tags "install"
+    #and 
+    #You can skip specific tasks using tags with the command:
+    #ansible-playbook playbook.yaml --skip-tags "config"
