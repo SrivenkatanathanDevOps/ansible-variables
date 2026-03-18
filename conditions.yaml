@@ -1,0 +1,18 @@
+- name: Condition Example
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+    - name: Install nginx
+      ansible.builtin.dnf:
+        name: nginx
+        state: present
+      when: ansible_facts[ 'os_family' ] == 'RedHat'
+
+    - name: Install postgresql
+      ansible.builtin.dnf:
+        name:
+          - postgresql16-client
+          - postgresql16
+        state: present
+      when: ansible_facts[ 'os_family' ] == 'RedHat'
